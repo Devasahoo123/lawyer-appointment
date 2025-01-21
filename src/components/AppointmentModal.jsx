@@ -7,9 +7,7 @@ const AppointmentModal = ({ lawyer, onClose }) => {
   const [error, setError] = useState(null);
 
   const handleBooking = () => {
-    // Ensure that availability is checked correctly and handle errors accordingly
     if (parseInt(lawyer.availability, 10) > 0) {
-      // Dispatch the booking action
       dispatch(
         bookAppointment({
           lawyerId: lawyer.id,
@@ -17,10 +15,8 @@ const AppointmentModal = ({ lawyer, onClose }) => {
           time: new Date().toISOString(),
         })
       );
-      // Close the modal after booking
       onClose();
     } else {
-      // Set error if appointment is not available
       setError('Sorry, no slots available at the moment.');
     }
   };
